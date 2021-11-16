@@ -7,7 +7,7 @@ Created on Mon Nov 15 16:01:22 2021
 
 import os
 import numpy as np
-from openpyxl import load_workbook
+from openpyxl import load_workbook, Workbook
 
 #########################################
 
@@ -29,10 +29,8 @@ special_station_input_id = ['C0V250','C0R140']
 print("[INFO] loading special station")
 
 
-tmp_special_stations = []
-data_special_stations = []
-
-date_dic = {}
+wb = Workbook()
+sheet = wb.create_sheet("daily_afternoon_rainfall", 0)
 
 for year in os.listdir(station_path):
     #print(file)
@@ -89,7 +87,8 @@ for year in os.listdir(station_path):
             
             if all_larger:
                 print("1")
+                sheet.append([date,1])
             else:
                 print("0")
-                
+                sheet.append([date,0])
                 
