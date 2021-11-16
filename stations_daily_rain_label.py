@@ -13,7 +13,7 @@ from openpyxl import load_workbook, Workbook
 
 station_path = '/media/ubuntu/My Passport/NCDR/Data/station_data'
 
-Result = 'Result/daily_rain.xlxs'
+Result = 'Result/daily_rain.xlsx'
 
 min_rain = 0
 
@@ -92,3 +92,4 @@ for year in os.listdir(station_path):
                 print("0")
                 sheet.append([date,0])
                 
+wb.save(Result)
