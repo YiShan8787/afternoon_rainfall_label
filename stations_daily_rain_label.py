@@ -42,6 +42,7 @@ for year in os.listdir(station_path):
         for date in os.listdir(month_dir):
             date_dir = month_dir + "/" + date
             afternoon_rainfall = 0
+            stations_daily_rain = {}
             for date_file in os.listdir(date_dir):
                 if not date_file.endswith(".txt"):
                     #break
@@ -58,7 +59,7 @@ for year in os.listdir(station_path):
                 
                 tmp_water = -1
                 
-                stations_daily_rain = {}
+                
                 
                 for line in f.readlines():
                     line = line.replace("-", " -")
@@ -78,16 +79,17 @@ for year in os.listdir(station_path):
                             else:
                                 stations_daily_rain[station] += stations_daily_rain[station]
                 
-                all_larger = 1
-                
-                for station_id in stations_daily_rain:
-                    if stations_daily_rain[station_id] < thresh_hold:
-                        all_larger = 0
-                        break
-                
-                if all_larger:
-                    print("1")
-                else:
-                    print("0")
+            all_larger = 1
+            
+            for station_id in stations_daily_rain:
+                if stations_daily_rain[station_id] < thresh_hold:
+                    
+                    all_larger = 0
+                    break
+            
+            if all_larger:
+                print("1")
+            else:
+                print("0")
                 
                 
