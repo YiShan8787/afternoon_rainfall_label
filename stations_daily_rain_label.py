@@ -80,8 +80,8 @@ for year in os.listdir(station_path):
                 
                 all_larger = 1
                 
-                for rain in stations_daily_rain:
-                    if rain < thresh_hold:
+                for station_id in stations_daily_rain:
+                    if stations_daily_rain[station_id] < thresh_hold:
                         all_larger = 0
                         break
                 
