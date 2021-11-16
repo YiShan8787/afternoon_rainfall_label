@@ -73,7 +73,7 @@ for year in os.listdir(station_path):
                             tmp_water = min_rain
                         
                         if station in special_station_input_id:
-                            if stations_daily_rain.get(station) == "None":
+                            if stations_daily_rain.get(station) == None:
                                 stations_daily_rain[station] = tmp_water
                             else:
                                 stations_daily_rain[station] += stations_daily_rain[station]
