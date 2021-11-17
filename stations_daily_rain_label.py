@@ -24,7 +24,60 @@ rate = 0.1
 
 #special_station_input_id = ['C0V250','C0R140']
 
+'''
+#north
+special_station_input_id = [
+    
+    '466940','466950'
+    
+    'C0B010','C0B020','CAB010','CAB020','CAB030',
+    'CAB040','CAB050',
+    
+    '466920','466930','466910','CAAH60','466960',
+    'A0A460',
+    
+    'C0A9E0','C0A9C0','CM0020','C0A980','C0AH40',
+    'C0AC80','C0AI40','C0A9B0','C0AC40','C0AC70',
+    'C0A9G0','C0AH70','CAA040','CAA090'
+    
+    '466880','466900','A0A9M0','466850','A0A9K0',
+    
+    'C0AD10','C0AD00','C0A9I0','C0A9I1','C0AI30',
+    'C0AC60','C0AI00','C0AD40','C0AG80','C0AG90',
+    'C0A650','C0AH10','C0A920','C0AI20','C0A640',
+    'C0AH00','C0A870','C0A530','C0A540','C0AH50',
+    'C0A710','C0A710','C0A930','C0A931','C0A940',
+    'C0A570','C0A560','C0AH90','C0A880','C0A970',
+    'C0AH80','C0AD20','C0AI10','C0A580','C0ACA0',
+    'C0A950','C0A660','C0AH30','C0A860','C0A520',
+    'C0A890','C0A550','C0AD30','C0AD50','CAA020',
+    'CAA010','CAA030','CAA050','CAA060','CAA070',
+    'CAA080'
+    
+    
+    ]
+'''
 
+'''
+#middle
+special_station_input_id = [
+    
+    '467490','D2F230','467770','CAD010','CAF020',
+    'CAF030','CAF040','CAF050','CAF060','CAF070',
+    'CAF080','CAF090',
+    
+    'C0F930','C0F9K0','C0F000','C0F9N0','C0F9X0',
+    'C0F990','C0F9A0','C0F970','C0F9Q0','CM0030',
+    'C0F0B0','C0F920','C0F9L0','CM0190','CM0040',
+    'C0F9T0','C0F0A0','C0F0E0','C0F860','C0F861',
+    'C0F9Y0','C0F900','C0F9Z0','C0F0C0','C0F0D0',
+    'C0FA00','C0F850','C0F9U0','C0F9S0','C0F9I0',
+    'C0F9P0','C0F9V0','C0F9O0','C0F9R0','C0F9M0',
+    'CM0010'
+    
+    
+    ]
+'''
 #south
 special_station_input_id = [
     
