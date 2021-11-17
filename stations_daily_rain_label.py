@@ -17,7 +17,7 @@ Result = 'Result/daily_rain.xlsx'
 
 min_rain = 0
 
-thresh_hold = 50
+thresh_hold = 40
 
 
 special_station_input_id = ['C0V250','C0R140']
@@ -46,8 +46,7 @@ for year in os.listdir(station_path):
                     #break
                     continue
                 time = int(date_file[-6:-4])
-                if time <12 and time>18:
-                    continue
+                
                 file_name = date_file
                 date_txt = date_dir + "/" + date_file
                 print(date_txt)

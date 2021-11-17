@@ -48,10 +48,13 @@ for year in os.listdir(station_path):
                 is_morning = 0
                 is_afternoon = 0
                 is_night = 0
+                #morning: 6~11
                 if time <12 and time>5:
                     is_morning = 1
+                #night: 18~23
                 if time <24 and time >17:
                     is_night = 1
+                # afternoon: 12~18
                 if time <19 and time >11:
                     is_afternoon = 1
                 file_name = date_file
