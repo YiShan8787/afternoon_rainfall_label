@@ -111,6 +111,7 @@ for year in os.listdir(station_path):
                     break
             
             #if all_larger>int(len(stations_daily_rain)*rate):
+            print(len(stations_daily_rain))
             if all_larger>0:
                 print("1")
                 count_true+=1
