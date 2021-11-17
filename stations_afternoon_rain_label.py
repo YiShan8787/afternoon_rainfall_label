@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 Created on Mon Nov 15 16:01:22 2021
 
@@ -13,11 +12,9 @@ from openpyxl import load_workbook, Workbook
 
 station_path = '/media/ubuntu/My Passport/NCDR/Data/station_data'
 
-Result = 'Result/daily_rain.xlsx'
+Result = 'Result/afternoon_rain.xlsx'
 
 min_rain = 0
-
-thresh_hold = 50
 
 
 special_station_input_id = ['C0V250','C0R140']
@@ -40,14 +37,23 @@ for year in os.listdir(station_path):
         for date in os.listdir(month_dir):
             date_dir = month_dir + "/" + date
             afternoon_rainfall = 0
-            stations_daily_rain = {}
+            stations_morning_rain = {}
+            stations_afternoon_rain = {}
+            stations_night_rain = {}
             for date_file in os.listdir(date_dir):
                 if not date_file.endswith(".txt"):
                     #break
                     continue
                 time = int(date_file[-6:-4])
-                if time <12 and time>18:
-                    continue
+                is_morning = 0
+                is_afternoon = 0
+                is_night = 0
+                if time <12 and time>5:
+                    is_morning = 1
+                if time <24 and time >17:
+                    is_night = 1
+                if time <19 and time >11:
+                    is_afternoon
                 file_name = date_file
                 date_txt = date_dir + "/" + date_file
                 print(date_txt)
@@ -72,15 +78,27 @@ for year in os.listdir(station_path):
                             tmp_water = min_rain
                         
                         if station in special_station_input_id:
-                            if stations_daily_rain.get(station) == None:
-                                stations_daily_rain[station] = tmp_water
-                            else:
-                                stations_daily_rain[station] += stations_daily_rain[station]
+                            
+                            if is_morning:
+                                if stations_morning_rain.get(station) == None:
+                                    stations_morning_rain[station] = tmp_water
+                                else:
+                                    stations_morning_rain[station] += stations_morning_rain[station]
+                            if is_afternoon:
+                                if stations_afternoon_rain.get(station) == None:
+                                    stations_afternoon_rain[station] = tmp_water
+                                else:
+                                    stations_afternoon_rain[station] += stations_afternoon_rain[station]
+                            if is_night:
+                                if stations_night_rain.get(station) == None:
+                                    stations_night_rain[station] = tmp_water
+                                else:
+                                    stations_night_rain[station] += stations_night_rain[station]
                 
             all_larger = 1
             
-            for station_id in stations_daily_rain:
-                if stations_daily_rain[station_id] < thresh_hold:
+            for station_id in special_station_input_id:
+                if stations_afternoon_rain[station_id] < stations_morning_rain[station_id] + stations_night_rain[station_id]:
                     
                     all_larger = 0
                     break
