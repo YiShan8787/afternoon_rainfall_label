@@ -42,6 +42,7 @@ for year in os.listdir(station_path):
             stations_morning_rain = {}
             stations_afternoon_rain = {}
             stations_night_rain = {}
+            stations_list = []
             for date_file in os.listdir(date_dir):
                 if not date_file.endswith(".txt"):
                     #break
@@ -87,22 +88,28 @@ for year in os.listdir(station_path):
                             if is_morning:
                                 if stations_morning_rain.get(station) == None:
                                     stations_morning_rain[station] = tmp_water
+                                    if station not in stations_list:
+                                        stations_list.append(station)
                                 else:
                                     stations_morning_rain[station] += stations_morning_rain[station]
                             if is_afternoon:
                                 if stations_afternoon_rain.get(station) == None:
                                     stations_afternoon_rain[station] = tmp_water
+                                    if station not in stations_list:
+                                        stations_list.append(station)
                                 else:
                                     stations_afternoon_rain[station] += stations_afternoon_rain[station]
                             if is_night:
                                 if stations_night_rain.get(station) == None:
                                     stations_night_rain[station] = tmp_water
+                                    if station not in stations_list:
+                                        stations_list.append(station)
                                 else:
                                     stations_night_rain[station] += stations_night_rain[station]
                 
             all_larger = 1
             
-            for station_id in special_station_input_id:
+            for station_id in stations_list:
                 
                 if stations_afternoon_rain[station_id] < stations_morning_rain[station_id] + stations_night_rain[station_id]:
                     
