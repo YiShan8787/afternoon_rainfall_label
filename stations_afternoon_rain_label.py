@@ -28,6 +28,8 @@ print("[INFO] loading special station")
 
 wb = Workbook()
 sheet = wb.create_sheet("daily_afternoon_rainfall", 0)
+count_true = 0
+count_false = 0
 
 for year in os.listdir(station_path):
     #print(file)
@@ -109,9 +111,13 @@ for year in os.listdir(station_path):
             
             if all_larger:
                 print("1")
+                count_true+=1
                 sheet.append([date,1])
             else:
                 print("0")
+                count_false+=1
                 sheet.append([date,0])
                 
 wb.save(Result)
+print(count_true)
+print(count_false)
