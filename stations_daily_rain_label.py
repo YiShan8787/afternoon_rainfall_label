@@ -17,7 +17,7 @@ Result = 'Result/daily_rain.xlsx'
 
 min_rain = 0
 
-thresh_hold = 40
+thresh_hold = 15
 
 rate = 0.1
 
@@ -112,7 +112,7 @@ for year in os.listdir(station_path):
             
             #if all_larger>int(len(stations_daily_rain)*rate):
             #print(len(stations_daily_rain))
-            if all_larger>1:
+            if all_larger>0:
                 print("1")
                 count_true+=1
                 sheet.append([date,1])
