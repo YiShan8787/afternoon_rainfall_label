@@ -100,15 +100,16 @@ for year in os.listdir(station_path):
                             else:
                                 stations_daily_rain[station] += stations_daily_rain[station]
                 
-            all_larger = 1
+            all_larger = 0
             
             for station_id in stations_daily_rain:
-                if stations_daily_rain[station_id] < thresh_hold:
+                if stations_daily_rain[station_id] > thresh_hold:
                     
-                    all_larger = 0
+                    all_larger +=1
                     break
             
-            if all_larger:
+            #if all_larger>int(len(stations_daily_rain)*rate):
+            if all_larger>5:
                 print("1")
                 count_true+=1
                 sheet.append([date,1])
