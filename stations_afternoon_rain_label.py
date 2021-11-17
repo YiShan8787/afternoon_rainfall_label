@@ -53,7 +53,7 @@ for year in os.listdir(station_path):
                 if time <24 and time >17:
                     is_night = 1
                 if time <19 and time >11:
-                    is_afternoon
+                    is_afternoon = 1
                 file_name = date_file
                 date_txt = date_dir + "/" + date_file
                 print(date_txt)
@@ -98,9 +98,7 @@ for year in os.listdir(station_path):
             all_larger = 1
             
             for station_id in special_station_input_id:
-                print(stations_morning_rain[station_id])
-                print(stations_afternoon_rain[station_id])
-                print(stations_night_rain[station_id])
+                
                 if stations_afternoon_rain[station_id] < stations_morning_rain[station_id] + stations_night_rain[station_id]:
                     
                     all_larger = 0
