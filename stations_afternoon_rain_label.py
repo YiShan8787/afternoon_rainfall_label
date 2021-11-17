@@ -17,7 +17,7 @@ Result = 'Result/afternoon_rain.xlsx'
 min_rain = 0
 
 
-special_station_input_id = ['C0V250','C0R140']
+special_station_input_id = ['C0R140']
 
 
 #########################################
