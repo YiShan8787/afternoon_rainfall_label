@@ -139,6 +139,8 @@ sheet = wb.create_sheet("daily_afternoon_rainfall", 0)
 count_true = 0
 count_false = 0
 
+stations_daily_rain = {}
+
 for year in os.listdir(station_path):
     #print(file)
     year_dir = station_path + "/" + year
@@ -205,3 +207,4 @@ for year in os.listdir(station_path):
 wb.save(Result)
 print(count_true)
 print(count_false)
+print(len(stations_daily_rain))
