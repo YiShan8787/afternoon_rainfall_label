@@ -19,7 +19,7 @@ min_rain = 0
 
 thresh_hold = 15
 
-rate = 0.1
+rate = 0.05
 
 
 #special_station_input_id = ['C0V250','C0R140']
