@@ -16,6 +16,8 @@ Result = 'Result/afternoon_rain.xlsx'
 
 min_rain = 0
 
+rate = 0.05
+
 
 #special_station_input_id = ['C0R140']
 '''
@@ -206,16 +208,16 @@ for year in os.listdir(station_path):
                                 else:
                                     stations_night_rain[station] += stations_night_rain[station]
                 
-            all_larger = 1
+            all_larger = 0
             
             for station_id in stations_list:
                 
                 if stations_afternoon_rain[station_id] < stations_morning_rain[station_id] + stations_night_rain[station_id]:
                     
-                    all_larger = 0
-                    break
+                    all_larger += 1
+                    #break
             
-            if all_larger:
+            if all_larger>int(len(stations_list)*rate):
                 print("1")
                 count_true+=1
                 sheet.append([date,1])
