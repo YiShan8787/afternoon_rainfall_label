@@ -54,7 +54,7 @@ special_station_input_id = [
     ]
 '''
 
-'''
+
 #middle
 special_station_input_id = [
     
@@ -73,8 +73,8 @@ special_station_input_id = [
     
     
     ]
-'''
 
+'''
 #south
 special_station_input_id = [
     
@@ -119,7 +119,7 @@ special_station_input_id = [
     'C1R320','C0R770','C0R740','C0R800','C0R810',
     'C0R820'
     ]
-
+'''
 
 #########################################
 
