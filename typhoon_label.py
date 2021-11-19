@@ -5,11 +5,15 @@ Created on Wed Nov 17 16:48:19 2021
 @author: user
 """
 
+import os
+import numpy as np
+from openpyxl import load_workbook, Workbook
+
 #########################################
 
 station_path = '/media/ubuntu/My Passport/NCDR/Data/station_data'
 
-Result = 'Result/daily_rain.xlsx'
+Result = 'Result/typhoon_day.xlsx'
 
 
 #https://zh.wikipedia.org/wiki/%E4%B8%AD%E5%A4%AE%E6%B0%A3%E8%B1%A1%E5%B1%80%E6%9C%89%E7%99%BC%E4%BD%88%E8%AD%A6%E5%A0%B1%E7%9A%84%E9%A2%B1%E9%A2%A8%E5%88%97%E8%A1%A8
@@ -50,3 +54,34 @@ typhoon_date_list = [
     ]
 
 ##############################################
+
+print("[INFO] loading special station")
+
+
+wb = Workbook()
+sheet = wb.create_sheet("daily_afternoon_rainfall", 0)
+count_true = 0
+count_false = 0
+
+
+for year in os.listdir(station_path):
+    #print(file)
+    year_dir = station_path + "/" + year
+    for month in os.listdir(year_dir):
+        month_dir = year_dir + "/" + month
+        for date in os.listdir(month_dir):
+            
+            print(date)
+            
+            if date in typhoon_date_list:
+                print("in")
+                count_true+=1
+                sheet.append([date,0])
+            else:
+                #print("not in")
+                count_false+=1
+                sheet.append([date,1])
+                
+wb.save(Result)
+print(count_true)
+print(count_false)
