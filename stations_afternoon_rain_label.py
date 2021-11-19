@@ -20,7 +20,7 @@ rate = 0.05
 
 
 #special_station_input_id = ['C0R140']
-'''
+
 #north
 special_station_input_id = [
     
@@ -52,9 +52,9 @@ special_station_input_id = [
     
     
     ]
+
+
 '''
-
-
 #middle
 special_station_input_id = [
     
@@ -73,7 +73,7 @@ special_station_input_id = [
     
     
     ]
-
+'''
 '''
 #south
 special_station_input_id = [
