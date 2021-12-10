@@ -29,6 +29,15 @@ Result = 'Result/west_south_wind.xlsx'
 
 ##############################################
 
+def dotproduct(v1, v2):
+  return sum((a*b) for a, b in zip(v1, v2))
+
+def length(v):
+  return math.sqrt(dotproduct(v, v))
+
+def angle(v1, v2):
+  return math.acos(dotproduct(v1, v2) / (length(v1) * length(v2)))
+
 print("[INFO] loading U_V data")
 
 
@@ -130,18 +139,33 @@ if not len(U_date_list) == len(V_date_list):
     
     
 is_wind_speed_ok = 1
+is_wind_direction_ok = 1
+vector_1 = [1,0]
 for i in range(len(U_date_list)):
     
     for j in range(len(height_list)*len(width_list)):
         
         #chek wind speed
-        if math.sqrt(U_value_list[i][j]*U_value_list[i][j] + V_value_list[i][j]*V_value_list[i][j]) >wind_speed_threshold:
+        if math.sqrt(U_value_list[i][j]*U_value_list[i][j] + V_value_list[i][j]*V_value_list[i][j]) <wind_speed_threshold:
             is_wind_speed_ok = 0
             break
         
+        wind_dir = angle(vector_1,[U_value_list[i][j],V_value_list[i][j]])
+        
+        if wind_dir<180 or wind_dir>270:
+            is_wind_direction_ok = 0
+            break
         #check wind direction
         
+    if is_wind_direction_ok and is_wind_speed_ok:
+        sheet.append([date,0])
+        count_true+=1
+    else:
+        sheet.append([date,1])
+        count_false+=1
     
+    is_wind_direction_ok = 1
+    is_wind_speed_ok = 1
 
 
     
