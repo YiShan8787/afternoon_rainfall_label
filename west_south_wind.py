@@ -61,7 +61,7 @@ for date in os.listdir(U_path):
     
     U_date = date[:-4]
     U_time = date[-6:-4]
-    #print(U_time)
+    print(U_date)
     if U_date not in U_date_list:
         
         U_date_list.append(U_date)
@@ -102,7 +102,7 @@ for date in os.listdir(U_path):
 for date in os.listdir(V_path):
     #print(file)
     V_date = date[:-4]
-    V_time = date[-4:-2]
+    V_time = date[-6:-4]
     
     if V_date not in V_date_list:
         
@@ -111,6 +111,7 @@ for date in os.listdir(V_path):
             
             #read file
             path = V_path +  '/' + date
+            print(path)
             f = open(path)
             data_V = []
             
