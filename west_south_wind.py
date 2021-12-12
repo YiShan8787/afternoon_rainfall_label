@@ -176,10 +176,10 @@ for i in range(len(U_date_list)):
         #check wind direction
         
     if is_wind_direction_ok and is_wind_speed_ok:
-        sheet.append([date,0])
+        sheet.append([U_date_list[i],0])
         count_true+=1
     else:
-        sheet.append([date,1])
+        sheet.append([U_date_list[i],1])
         count_false+=1
     
     is_wind_direction_ok = 1
