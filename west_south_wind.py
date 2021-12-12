@@ -170,7 +170,7 @@ for i in range(len(U_date_list)):
         
         #1 0 -1 0 
         #if wind_dir>0 or wind_dir<-1:
-        if U_value_list[i][j] > 0 and V_value_list[i][j] > 0:
+        if not (U_value_list[i][j] > 0 and V_value_list[i][j] > 0):
             print("dir: ",wind_dir)
             is_wind_direction_ok = 0
             break
