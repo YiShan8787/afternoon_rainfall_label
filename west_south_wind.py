@@ -58,14 +58,14 @@ V_value_list = []
 test = 0
 test_len = 0
 
-for date in os.listdir(U_path):
+for date in sorted(os.listdir(U_path)):
     #print(file)
     
     U_date = date[:-6]
     U_time = date[-6:-4]
     
     if U_date not in U_date_list:
-        print(U_date)
+        #print(U_date)
         U_date_list.append(U_date)
     if U_time == time:
         
@@ -105,7 +105,7 @@ for date in os.listdir(U_path):
     
     
                 
-for date in os.listdir(V_path):
+for date in sorted(os.listdir(V_path)):
     #print(file)
     V_date = date[:-6]
     V_time = date[-6:-4]
