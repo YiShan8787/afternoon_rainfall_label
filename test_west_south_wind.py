@@ -15,8 +15,8 @@ import geopandas as gpd
 
 #########################################
 
-U_path = 'E:/tech/ncdr/afternoon_rainfall_label/2010050100_U.txt'
-V_path = 'E:/tech/ncdr/afternoon_rainfall_label/2010050100_V.txt'
+U_path = 'E:/tech/ncdr/afternoon_rainfall_label/2010052312_U.txt'
+V_path = 'E:/tech/ncdr/afternoon_rainfall_label/2010052312_V.txt'
 
 #Result = 'Result/west_south_wind.xlsx'
 shape_file_path = 'E:/tech/ncdr/shp/TAIWAN_MASK.shp'
@@ -151,8 +151,8 @@ plt.savefig("test")
 
         
 #wb.save(Result)
-print(count_true)
-print(count_false)
+print(data_U[23][39])
+print(data_V[23][39])
 
 #plt.quiver(x,y,data_U,data_V)
 plt.show()
