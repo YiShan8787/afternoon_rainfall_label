@@ -60,7 +60,7 @@ for date in os.listdir(U_path):
     #print(file)
     
     U_date = date[:-4]
-    U_time = date[-4:-2]
+    U_time = date[-6:-4]
     print(U_time)
     if U_date not in U_date_list:
         
