@@ -160,7 +160,9 @@ for i in range(len(U_date_list)):
     for j in range(len(height_list)*len(width_list)):
         
         #chek wind speed
-        if math.sqrt(U_value_list[i][j]*U_value_list[i][j] + V_value_list[i][j]*V_value_list[i][j]) <wind_speed_threshold:
+        wind_speed = math.sqrt(U_value_list[i][j]*U_value_list[i][j] + V_value_list[i][j]*V_value_list[i][j])
+        if wind_speed <wind_speed_threshold:
+            print(wind_speed)
             is_wind_speed_ok = 0
             break
         
