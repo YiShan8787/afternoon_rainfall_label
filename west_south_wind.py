@@ -87,7 +87,7 @@ for date in os.listdir(U_path):
             #get the value in the selected wind field
             for i in width_list:
                 for j in height_list:
-                    U_value_temp.append(data_U[i][j])
+                    U_value_temp.append(data_U[j][i])
                     
             U_value_list.append(U_value_temp)
             U_value_temp = []
@@ -124,7 +124,7 @@ for date in os.listdir(V_path):
             #get the value in the selected wind field
             for i in width_list:
                 for j in height_list:
-                    V_value_temp.append(data_V[i][j])
+                    V_value_temp.append(data_V[j][i])
                     
             V_value_list.append(V_value_temp)
             V_value_temp = []
