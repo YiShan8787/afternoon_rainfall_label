@@ -83,6 +83,9 @@ for date in os.listdir(U_path):
                     data_U.append(float(parsing[0]))
                     
             data_U = np.array(data_U)
+            
+            if not data_U:
+                data_U = np.zeros((41,71))
             data_U = np.reshape(data_U,(41,71))
             
             #get the value in the selected wind field
@@ -120,6 +123,8 @@ for date in os.listdir(V_path):
                     data_V.append(float(parsing[0]))
                     
             data_V = np.array(data_V)
+            if not data_V:
+                data_V = np.zeros((41,71))
             data_V = np.reshape(data_V,(41,71))
             
             #get the value in the selected wind field
