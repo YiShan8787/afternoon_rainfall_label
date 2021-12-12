@@ -68,7 +68,8 @@ for date in os.listdir(U_path):
         if U_time == time:
             
             #read file
-            f = open(date)
+            path = U_path +  '/' + date
+            f = open(path)
             data_U = []
             
             for line in f.readlines():
@@ -104,7 +105,8 @@ for date in os.listdir(V_path):
         if V_time == time:
             
             #read file
-            f = open(date)
+            path = V_path +  '/' + date
+            f = open(path)
             data_V = []
             
             for line in f.readlines():
