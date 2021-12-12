@@ -130,9 +130,13 @@ for date in os.listdir(V_path):
 
 if not len(U_value_list) == len(U_date_list):
     print("U vector format not equivalent")
+    print("u_value: ",len(U_value_list))
+    print('u_data: ',len(U_date_list))
     
 if not len(V_value_list) == len(V_date_list):
     print("v vector format not equivalent")
+    print("v_value: ",len(V_value_list))
+    print('v_data: ',len(V_date_list))
     
 if not len(U_date_list) == len(V_date_list):
     print("u,v vector format not equivalent")
