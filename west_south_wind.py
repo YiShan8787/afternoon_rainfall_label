@@ -17,9 +17,9 @@ V_path = '/media/ubuntu/My Passport/NCDR/Data/U_V_data/V850'
 
 time = '12'
 
-width_list = [40,41]
+width_list = [39,40]
 
-height_list = [24,25]
+height_list = [23,24]
 
 wind_speed_threshold = 5#12.86
 
