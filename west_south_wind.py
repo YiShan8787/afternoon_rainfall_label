@@ -55,8 +55,7 @@ V_value_temp = []
 U_value_list = []
 V_value_list = []
 
-test = 0
-test_len = 0
+
 
 for date in sorted(os.listdir(U_path)):
     #print(file)
@@ -91,9 +90,7 @@ for date in sorted(os.listdir(U_path)):
             data_U = np.array(data_U)
             data_U = np.reshape(data_U,(41,71))
             
-        if U_date =='20100610':
-            test = data_U[23][39]
-            test_len = len(U_value_list)
+        
         
         #get the value in the selected wind field
         for i in width_list:
@@ -168,7 +165,7 @@ for i in range(len(U_date_list)):
         #chek wind speed
         wind_speed = math.sqrt(U_value_list[i][j]*U_value_list[i][j] + V_value_list[i][j]*V_value_list[i][j])
         if wind_speed <wind_speed_threshold:
-            print("speed: ",wind_speed)
+            #print("speed: ",wind_speed)
             is_wind_speed_ok = 0
             break
         
@@ -177,7 +174,7 @@ for i in range(len(U_date_list)):
         #1 0 -1 0 
         #if wind_dir>0 or wind_dir<-1:
         if not (U_value_list[i][j] > 0 and V_value_list[i][j] > 0):
-            print("dir: ",wind_dir)
+            #print("dir: ",wind_dir)
             is_wind_direction_ok = 0
             break
         #check wind direction
@@ -195,11 +192,11 @@ for i in range(len(U_date_list)):
 
     
                 
-print(U_date_list[22])
-print("U: ",U_value_list[22][0])
-print("V: ",V_value_list[22][0])
-print(test)
-print(test_len)
+#print(U_date_list[22])
+#print("U: ",U_value_list[22][0])
+#print("V: ",V_value_list[22][0])
+#print(test)
+#print(test_len)
 wb.save(Result)
 print(count_true)
 print(count_false)
