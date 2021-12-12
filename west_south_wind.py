@@ -190,8 +190,8 @@ for i in range(len(U_date_list)):
     
                 
 print(U_date_list[22])
-print("U: ",U_value_list[22][0])
-print("V: ",V_value_list[22][0])
+print("U: ",U_value_list[22][1])
+print("V: ",V_value_list[22][1])
 wb.save(Result)
 print(count_true)
 print(count_false)
