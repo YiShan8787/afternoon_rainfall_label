@@ -85,9 +85,9 @@ for date in os.listdir(U_path):
             data_U = np.reshape(data_U,(41,71))
             
             #get the value in the selected wind field
-            for i in range(width_list):
-                for j in range(height_list):
-                    U_value_temp.append(data_U[height_list[j]][height_list[i]])
+            for i in width_list:
+                for j in height_list:
+                    U_value_temp.append(data_U[i][j])
                     
             U_value_list.append(U_value_temp)
             U_value_temp = []
@@ -122,9 +122,9 @@ for date in os.listdir(V_path):
             data_V = np.reshape(data_V,(41,71))
             
             #get the value in the selected wind field
-            for i in range(len(width_list)):
-                for j in range(len(height_list)):
-                    V_value_temp.append(data_V[height_list[j]][height_list[i]])
+            for i in width_list:
+                for j in height_list:
+                    V_value_temp.append(data_V[i][j])
                     
             V_value_list.append(V_value_temp)
             V_value_temp = []
