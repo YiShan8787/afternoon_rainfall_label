@@ -169,7 +169,7 @@ for i in range(len(U_date_list)):
         wind_dir = angle(vector_1,[U_value_list[i][j],V_value_list[i][j]])
         
         #1 0 -1 0 
-        if wind_dir>math.cos(60) or wind_dir<math.cos(30):
+        if wind_dir>0 or wind_dir<-1:
             print("dir: ",wind_dir)
             is_wind_direction_ok = 0
             break
