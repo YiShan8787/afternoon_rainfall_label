@@ -21,7 +21,7 @@ width_list = [40,41]
 
 height_list = [24,25]
 
-wind_speed_threshold = 12.86
+wind_speed_threshold = 5#12.86
 
 Result = 'Result/west_south_wind.xlsx'
 
