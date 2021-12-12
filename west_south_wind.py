@@ -64,39 +64,38 @@ for date in os.listdir(U_path):
     
     if U_date not in U_date_list:
         print(U_date)
-        print(U_time)
         U_date_list.append(U_date)
-        if U_time == time:
+    if U_time == time:
+        
+        #read file
+        path = U_path +  '/' + date
+        print(path)
+        f = open(path)
+        data_U = []
+        
+        for line in f.readlines():
             
-            #read file
-            path = U_path +  '/' + date
-            print(path)
-            f = open(path)
-            data_U = []
+            parsing = line.split()
             
-            for line in f.readlines():
-                
-                parsing = line.split()
-                
-                if parsing[0]=='71':
-                    continue
-                else:
-                    data_U.append(float(parsing[0]))
-                    
-                    
-            if not data_U:
-                data_U = np.zeros((41,71))
+            if parsing[0]=='71':
+                continue
             else:
-                data_U = np.array(data_U)
-                data_U = np.reshape(data_U,(41,71))
-            
-            #get the value in the selected wind field
-            for i in width_list:
-                for j in height_list:
-                    U_value_temp.append(data_U[j][i])
-                    
-            U_value_list.append(U_value_temp)
-            U_value_temp = []
+                data_U.append(float(parsing[0]))
+                
+                
+        if not data_U:
+            data_U = np.zeros((41,71))
+        else:
+            data_U = np.array(data_U)
+            data_U = np.reshape(data_U,(41,71))
+        
+        #get the value in the selected wind field
+        for i in width_list:
+            for j in height_list:
+                U_value_temp.append(data_U[j][i])
+                
+        U_value_list.append(U_value_temp)
+        U_value_temp = []
     
     
                 
@@ -106,38 +105,37 @@ for date in os.listdir(V_path):
     V_time = date[-6:-4]
     
     if V_date not in V_date_list:
-        
         V_date_list.append(V_date)
-        if V_time == time:
+    if V_time == time:
+        
+        #read file
+        path = V_path +  '/' + date
+        print(path)
+        f = open(path)
+        data_V = []
+        
+        for line in f.readlines():
             
-            #read file
-            path = V_path +  '/' + date
-            print(path)
-            f = open(path)
-            data_V = []
+            parsing = line.split()
             
-            for line in f.readlines():
-                
-                parsing = line.split()
-                
-                if parsing[0]=='71':
-                    continue
-                else:
-                    data_V.append(float(parsing[0]))
-                    
-            if not data_V:
-                data_V = np.zeros((41,71))
+            if parsing[0]=='71':
+                continue
             else:
-                data_V = np.array(data_V)
-                data_V = np.reshape(data_V,(41,71))
-            
-            #get the value in the selected wind field
-            for i in width_list:
-                for j in height_list:
-                    V_value_temp.append(data_V[j][i])
-                    
-            V_value_list.append(V_value_temp)
-            V_value_temp = []
+                data_V.append(float(parsing[0]))
+                
+        if not data_V:
+            data_V = np.zeros((41,71))
+        else:
+            data_V = np.array(data_V)
+            data_V = np.reshape(data_V,(41,71))
+        
+        #get the value in the selected wind field
+        for i in width_list:
+            for j in height_list:
+                V_value_temp.append(data_V[j][i])
+                
+        V_value_list.append(V_value_temp)
+        V_value_temp = []
             
 
 if not len(U_value_list) == len(U_date_list):
