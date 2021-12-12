@@ -61,7 +61,7 @@ for date in os.listdir(U_path):
     
     U_date = date[:-6]
     U_time = date[-6:-4]
-    #print(U_date)
+    print(U_date)
     if U_date not in U_date_list:
         
         U_date_list.append(U_date)
