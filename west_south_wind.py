@@ -162,13 +162,14 @@ for i in range(len(U_date_list)):
         #chek wind speed
         wind_speed = math.sqrt(U_value_list[i][j]*U_value_list[i][j] + V_value_list[i][j]*V_value_list[i][j])
         if wind_speed <wind_speed_threshold:
-            print(wind_speed)
+            print("speed: ",wind_speed)
             is_wind_speed_ok = 0
             break
         
         wind_dir = angle(vector_1,[U_value_list[i][j],V_value_list[i][j]])
         
         if wind_dir<180 or wind_dir>270:
+            print("dir: ",wind_dir)
             is_wind_direction_ok = 0
             break
         #check wind direction
