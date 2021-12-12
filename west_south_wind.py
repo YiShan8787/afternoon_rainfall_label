@@ -55,6 +55,7 @@ V_value_temp = []
 U_value_list = []
 V_value_list = []
 
+test = 0
 
 for date in os.listdir(U_path):
     #print(file)
@@ -88,6 +89,9 @@ for date in os.listdir(U_path):
         else:
             data_U = np.array(data_U)
             data_U = np.reshape(data_U,(41,71))
+            
+        if U_date =='20100610':
+            test = data_U[23][39]
         
         #get the value in the selected wind field
         for i in width_list:
@@ -190,8 +194,9 @@ for i in range(len(U_date_list)):
     
                 
 print(U_date_list[22])
-print("U: ",U_value_list[22][1])
-print("V: ",V_value_list[22][1])
+print("U: ",U_value_list[22][0])
+print("V: ",V_value_list[22][0])
+print(test)
 wb.save(Result)
 print(count_true)
 print(count_false)
