@@ -56,6 +56,7 @@ U_value_list = []
 V_value_list = []
 
 test = 0
+test_len = 0
 
 for date in os.listdir(U_path):
     #print(file)
@@ -92,6 +93,7 @@ for date in os.listdir(U_path):
             
         if U_date =='20100610':
             test = data_U[23][39]
+            test_len = len(U_value_list)
         
         #get the value in the selected wind field
         for i in width_list:
