@@ -160,6 +160,7 @@ if not len(U_date_list) == len(V_date_list):
 is_wind_speed_ok = 1
 is_wind_direction_ok = 1
 vector_1 = [1,0]
+wind_dir = 0
 for i in range(len(U_date_list)):
     
     for j in range(len(height_list)*len(width_list)):
