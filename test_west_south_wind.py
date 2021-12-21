@@ -15,8 +15,8 @@ import geopandas as gpd
 
 #########################################
 
-U_path = 'E:/tech/ncdr/afternoon_rainfall_label/2010052312_U.txt'
-V_path = 'E:/tech/ncdr/afternoon_rainfall_label/2010052312_V.txt'
+U_path = 'E:/tech/ncdr/afternoon_rainfall_label/2010072712_U.txt'
+V_path = 'E:/tech/ncdr/afternoon_rainfall_label/2010072712_V.txt'
 
 #Result = 'Result/west_south_wind.xlsx'
 shape_file_path = 'E:/tech/ncdr/shp/TAIWAN_MASK.shp'
