@@ -25,7 +25,9 @@ wind_speed_threshold = 12.86
 
 Result = 'Result/west_south_wind.xlsx'
 
+min_direction = math.cos(75)
 
+max_direction = math.cos(15)
 
 ##############################################
 
@@ -173,7 +175,7 @@ for i in range(len(U_date_list)):
         
         #1 0 -1 0 
         #if wind_dir>0 or wind_dir<-1:
-        if not (U_value_list[i][j] > 0 and V_value_list[i][j] > 0):
+        if not (U_value_list[i][j] > 0 and V_value_list[i][j] > 0 and wind_dir>min_direction and wind_dir<max_direction):
             #print("dir: ",wind_dir)
             is_wind_direction_ok = 0
             break
