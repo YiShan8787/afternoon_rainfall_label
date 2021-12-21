@@ -175,7 +175,7 @@ for i in range(len(U_date_list)):
         
         #1 0 -1 0 
         #if wind_dir>0 or wind_dir<-1:
-        if not (U_value_list[i][j] > 0 and V_value_list[i][j] > 0 and wind_dir>min_direction and wind_dir<max_direction):
+        if not (U_value_list[i][j] > 0 and V_value_list[i][j] > 0 ):
             #print("dir: ",wind_dir)
             is_wind_direction_ok = 0
             break
@@ -184,6 +184,7 @@ for i in range(len(U_date_list)):
     if is_wind_direction_ok and is_wind_speed_ok:
         sheet.append([U_date_list[i],0])
         count_true+=1
+        print(wind_dir)
     else:
         sheet.append([U_date_list[i],1])
         count_false+=1
