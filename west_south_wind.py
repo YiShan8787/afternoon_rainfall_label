@@ -25,9 +25,9 @@ wind_speed_threshold = 12.86
 
 Result = 'Result/west_south_wind.xlsx'
 
-min_direction = math.cos(math.pi*75/180)
+min_direction = math.cos(math.pi*60/180)
 
-max_direction = math.cos(math.pi*15/180)
+max_direction = math.cos(math.pi*30/180)
 
 ##############################################
 
