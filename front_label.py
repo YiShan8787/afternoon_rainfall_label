@@ -21,8 +21,10 @@ Result = 'Result/front_day.xlsx'
 
 component_size = 700
 
-weather_path = 'E:/tech/ncdr/ncdr_image_extract/weather_image'
+#weather_path = 'E:/tech/ncdr/ncdr_image_extract/weather_image'
+weather_path = 'E:/test_weather/2012-2013'
 
+extract_path = 'E:/tech/ncdr/ncdr_image_extract/extract_image/'
 
 #lon and lat for the whole image
 lonRange = [90, 160] # flipped from descending to ascending
@@ -79,6 +81,12 @@ for file in os.listdir(weather_path):
     #print(file)
     dir_path = os.path.abspath(weather_path)
     path = dir_path + '\\' + file
+    file_time = file[-8:-4]
+    
+    if file_time != '0000':
+        continue
+    #print(file[-8:-4])
+    date = file[3:11]
     print(path)
     
     # 讀取圖檔
@@ -150,10 +158,12 @@ for file in os.listdir(weather_path):
             dis_low = dis
         if dis < threshold_distance:
             print("in")
+            sheet.append([date,0])
             break
         #print(dis)
         #print("lat: ",lat)
         #print("lon: ",lon)
+    sheet.append([date,1])
     print(dis_low)
     end = time.time()
     print(end-start)
@@ -163,7 +173,7 @@ for file in os.listdir(weather_path):
     cv2.destroyAllWindows()
     
     # 寫入圖檔
-    out_path =  file.split('.')[0] + '_extract' +'.' +'jpg'
+    out_path = extract_path + file.split('.')[0] + '_extract' +'.' +'jpg'
     print(out_path)
     cv2.imwrite(out_path, extract_img)
                 
