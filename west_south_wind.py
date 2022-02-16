@@ -12,8 +12,8 @@ import math
 
 #########################################
 
-U_path = '/media/ubuntu/My Passport/NCDR/Data/U_V_data/U850'
-V_path = '/media/ubuntu/My Passport/NCDR/Data/U_V_data/V850'
+U_path = '/media/johnny/My Passport/NCDR/Data/test/u_v_data/U_850'
+V_path = '/media/johnny/My Passport/NCDR/Data/test/u_v_data/V_850'
 
 time = '12'
 
@@ -62,11 +62,12 @@ V_value_list = []
 for date in sorted(os.listdir(U_path)):
     #print(file)
     
-    U_date = date[:-6]
-    U_time = date[-6:-4]
-    
+    U_date = date[:8]
+    U_time = date[8:10]
+    #print(U_date)
+    #print(U_time)
     if U_date not in U_date_list:
-        #print(U_date)
+        print(U_date)
         U_date_list.append(U_date)
     if U_time == time:
         

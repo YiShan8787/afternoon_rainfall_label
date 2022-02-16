@@ -11,8 +11,8 @@ from openpyxl import load_workbook, Workbook
 
 #########################################
 
-#station_path = '/media/ubuntu/My Passport/NCDR/Data/station_data'
-station_path = 'E:/tech/ncdr/station_test'
+station_path = '/media/johnny/My Passport/NCDR/Data/test/station_data'
+#station_path = 'E:/tech/ncdr/station_test'
 
 Result = 'Result/typhoon_day.xlsx'
 

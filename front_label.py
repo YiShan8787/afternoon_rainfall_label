@@ -12,7 +12,7 @@ import cv2
 from numpy import interp
 import time
 import math
-
+from imutils import paths
 
 #########################################
 
@@ -21,14 +21,15 @@ Result = 'Result/front_day.xlsx'
 
 component_size = 700
 
-#weather_path = 'E:/tech/ncdr/ncdr_image_extract/weather_image'
-weather_path = 'E:/test_weather/2012-2013'
+weather_path = '/media/johnny/My Passport/NCDR/Data/test/weather_image_data'
+#weather_path = 'E:/test_weather/2012-2013'
 
-extract_path = 'E:/tech/ncdr/ncdr_image_extract/extract_image/'
+extract_path = '/media/johnny/My Passport/NCDR/Data/test/weather_extract_image/'
+#extract_path = 'E:/tech/ncdr/ncdr_image_extract/extract_image/'
 
 #lon and lat for the whole image
-lonRange = [90, 160] # flipped from descending to ascending
-latRange = [10,60]
+lonRange = [88, 160] # flipped from descending to ascending 90 160
+latRange = [4,65] # 4 65
 
 taiwan_lat = 23.58
 taiwan_lon = 120.58
@@ -38,12 +39,15 @@ threshold_distance = 200 #300km
 ##############################################
 
 def undesired_objects (image):
-    image = image.astype('uint8')
-    nb_components, output, stats, centroids = cv2.connectedComponentsWithStats(image, connectivity=4)
+    img = image.astype('uint8')
+    #print("2.5")
+    nb_components, output, stats, centroids = cv2.connectedComponentsWithStats(img, connectivity=4)
+    #print("2.6")
     sizes = stats[:, -1]
 
     #max_label = 1
     #max_size = sizes[1]
+    
     label_list = []
     for i in range(2, nb_components):
         if sizes[i] > component_size:
@@ -75,24 +79,29 @@ wb = Workbook()
 sheet = wb.create_sheet("front_day", 0)
 count_true = 0
 count_false = 0
+count_all = 0
+imagePaths = list(paths.list_images(weather_path))
 
 
-for file in os.listdir(weather_path):
+for file in sorted(imagePaths):
     #print(file)
     dir_path = os.path.abspath(weather_path)
-    path = dir_path + '\\' + file
+    #path = dir_path + '\\' + file
+    path = file
     file_time = file[-8:-4]
+    file_name = file.split('/')[-1]
     
     if file_time != '0000':
         continue
     #print(file[-8:-4])
-    date = file[3:11]
+    date = file_name[3:11]
+    print(file_name)
     print(path)
     
     # 讀取圖檔
     img = cv2.imread(path)
     img_hsv=cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
-    
+    #print("1")
     # lower mask (0-10)
     lower_red = np.array([0,50,50])
     upper_red = np.array([15,255,255])
@@ -131,7 +140,7 @@ for file in os.listdir(weather_path):
     
     #cv2.imshow('canny', dilation)
     #cv2.waitKey()
-    
+    #print('2')
     biggest_component = undesired_objects(dilation)
     extract_img = img.copy()
     extract_img[np.where(biggest_component==0)] = 0
@@ -139,6 +148,9 @@ for file in os.listdir(weather_path):
     rows, cols = np.where(biggest_component==255)
     start = time.time()
     dis_low = 999999
+    #print("3")
+    count_all+=1
+    in_flag = 0
     for i in range(len(rows)):
         y_mid = rows[i]
         x_mid = cols[i]
@@ -158,12 +170,15 @@ for file in os.listdir(weather_path):
             dis_low = dis
         if dis < threshold_distance:
             print("in")
+            count_false+=1
             sheet.append([date,0])
+            in_flag = 1
             break
         #print(dis)
         #print("lat: ",lat)
         #print("lon: ",lon)
-    sheet.append([date,1])
+    if not in_flag:
+        sheet.append([date,1])
     print(dis_low)
     end = time.time()
     print(end-start)
@@ -172,11 +187,13 @@ for file in os.listdir(weather_path):
     
     cv2.destroyAllWindows()
     
+    
     # 寫入圖檔
-    out_path = extract_path + file.split('.')[0] + '_extract' +'.' +'jpg'
+    out_path = extract_path + file_name.split('.')[0] + '_extract' +'.' +'jpg'
     print(out_path)
     cv2.imwrite(out_path, extract_img)
                 
+count_true = count_all-count_false
 wb.save(Result)
 print(count_true)
 print(count_false)

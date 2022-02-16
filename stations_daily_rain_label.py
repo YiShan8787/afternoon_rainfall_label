@@ -8,11 +8,12 @@ Created on Mon Nov 15 16:01:22 2021
 import os
 import numpy as np
 from openpyxl import load_workbook, Workbook
+from station_id import north,middle,south
 
 #########################################
 
-#station_path = '/media/ubuntu/My Passport/NCDR/Data/station_data'
-station_path = 'E:/tech/ncdr/station_test'
+station_path = '/media/johnny/My Passport/NCDR/Data/test/station_data'
+#station_path = 'E:/tech/ncdr/station_test'
 
 Result = 'Result/daily_rain.xlsx'
 
@@ -22,11 +23,11 @@ thresh_hold = 15
 
 rate = 0.05
 
-location = 'north'
+special_station_input_id = south
 
 
 #special_station_input_id = ['C0V250','C0R140']
-
+'''
 
 #north
 special_station_input_id = [
@@ -61,7 +62,7 @@ special_station_input_id = [
     ]
 
 
-'''
+
 #middle
 special_station_input_id = [
     
@@ -80,9 +81,9 @@ special_station_input_id = [
     
     
     ]
-'''
 
-'''
+
+
 #south
 special_station_input_id = [
     
