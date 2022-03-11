@@ -12,8 +12,8 @@ import math
 
 #########################################
 
-U_path = '/media/johnny/My Passport/NCDR/Data/test/u_v_data/U_850'
-V_path = '/media/johnny/My Passport/NCDR/Data/test/u_v_data/V_850'
+U_path = '/media/ubuntu/My Passport/NCDR/Data/test_ablation/u_v_data/U850'
+V_path = '/media/ubuntu/My Passport/NCDR/Data/test_ablation/u_v_data/V850'
 
 time = '12'
 
@@ -23,7 +23,7 @@ height_list = [23,24]
 
 wind_speed_threshold = 12.86
 
-Result = 'Result/west_south_wind.xlsx'
+Result = 'Result/west_south_wind_2015.xlsx'
 
 min_direction = math.cos(math.pi*60/180)
 

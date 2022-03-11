@@ -11,16 +11,16 @@ from openpyxl import load_workbook, Workbook
 ###################################################
 
 #north 2016
-'''
-event_files = [
-    'Result/daily_rain_n_2016.xlsx',
-    'Result/afternoon_rain_n_2016.xlsx',
-    'Result/typhoon_day_2016.xlsx',
-    'Result/front_day_2016.xlsx',
-    'Result/west_south_wind_2016.xlsx'
-    ]
-'''
 
+event_files = [
+    'Result/daily_rain_n_2012to2014.xlsx',
+    'Result/afternoon_rain_n_2012to2014.xlsx',
+    'Result/typhoon_day_2012to2014.xlsx',
+    'Result/front_day_2012to2014.xlsx',
+    'Result/west_south_wind_2012to2014.xlsx'
+    ]
+
+'''
 #south
 event_files = [
     'Result/daily_rain_s_2016.xlsx',
@@ -28,8 +28,8 @@ event_files = [
     'Result/typhoon_day_2016.xlsx',
     'Result/front_day_2016.xlsx',
     ]
-
-Result = "Result/event_day.xlsx"
+'''
+Result = "Result/event_day_strong_n_2012to2014.xlsx"
 
 
 ##################################################

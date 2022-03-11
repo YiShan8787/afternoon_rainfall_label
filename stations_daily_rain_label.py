@@ -12,10 +12,10 @@ from station_id import north,middle,south
 
 #########################################
 
-station_path = '/media/johnny/My Passport/NCDR/Data/test/station_data'
+station_path = '/media/ubuntu/My Passport/NCDR/Data/test_ablation/station_data'
 #station_path = 'E:/tech/ncdr/station_test'
 
-Result = 'Result/daily_rain.xlsx'
+Result = 'Result/daily_rain_n_2015.xlsx'
 
 min_rain = 0
 
@@ -23,7 +23,7 @@ thresh_hold = 15
 
 rate = 0.05
 
-special_station_input_id = south
+special_station_input_id = north
 
 
 #special_station_input_id = ['C0V250','C0R140']

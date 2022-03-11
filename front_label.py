@@ -17,14 +17,14 @@ from imutils import paths
 #########################################
 
 
-Result = 'Result/front_day.xlsx'
+Result = 'Result/front_day_2015.xlsx'
 
 component_size = 700
 
-weather_path = '/media/johnny/My Passport/NCDR/Data/test/weather_image_data'
+weather_path = '/media/ubuntu/My Passport/NCDR/Data/test_ablation/weather_image_data'
 #weather_path = 'E:/test_weather/2012-2013'
 
-extract_path = '/media/johnny/My Passport/NCDR/Data/test/weather_extract_image/'
+extract_path = '/media/ubuntu/My Passport/NCDR/Data/test_ablation/weather_extract_image/'
 #extract_path = 'E:/tech/ncdr/ncdr_image_extract/extract_image/'
 
 #lon and lat for the whole image

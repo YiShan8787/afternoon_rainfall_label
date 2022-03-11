@@ -11,10 +11,10 @@ from openpyxl import load_workbook, Workbook
 
 #########################################
 
-station_path = '/media/johnny/My Passport/NCDR/Data/test/station_data'
+station_path = '/media/ubuntu/My Passport/NCDR/Data/test_ablation/station_data'
 #station_path = 'E:/tech/ncdr/station_test'
 
-Result = 'Result/typhoon_day.xlsx'
+Result = 'Result/typhoon_day_2015.xlsx'
 
 
 #https://zh.wikipedia.org/wiki/%E4%B8%AD%E5%A4%AE%E6%B0%A3%E8%B1%A1%E5%B1%80%E6%9C%89%E7%99%BC%E4%BD%88%E8%AD%A6%E5%A0%B1%E7%9A%84%E9%A2%B1%E9%A2%A8%E5%88%97%E8%A1%A8
